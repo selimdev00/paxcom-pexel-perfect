@@ -25,6 +25,9 @@ export default {
       fontFamily: {
         pt: ["PT Sans", "sans-serif"],
       },
+      boxShadow: {
+        card: "0px 0px 20px 0px #0000001F",
+      },
       container: {
         center: true,
         padding: "1rem",

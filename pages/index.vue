@@ -3,5 +3,7 @@
     <LandingHero />
 
     <LandingAdvantages />
+
+    <LandingDocuments />
   </div>
 </template>

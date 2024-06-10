@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
     "@nuxt/eslint",
     "@nuxt/image",
+    "nuxt-swiper",
   ],
   site: {
     url: "https://compas.ru",
