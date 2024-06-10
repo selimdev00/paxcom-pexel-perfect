@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: false },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/seo", "@nuxt/eslint"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/seo",
+    "@nuxt/eslint",
+    "@nuxt/image",
+  ],
   site: {
     url: "https://compas.ru",
     name: "Compas - Анализ штрафов",

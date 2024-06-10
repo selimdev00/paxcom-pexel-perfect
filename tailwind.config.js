@@ -7,6 +7,12 @@ export default {
         primary: {
           400: "#0584FE",
           DEFAULT: "#0584FE",
+          dark: "#1253A2",
+        },
+        gray: {
+          text: {
+            DEFAULT: "#8F8F8F",
+          },
         },
       },
       backgroundImage: {
