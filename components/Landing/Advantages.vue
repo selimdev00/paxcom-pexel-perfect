@@ -42,7 +42,7 @@ const items = [
 
       <ul class="grid grid-cols-3 gap-8">
         <li
-          v-for="(item, index) in items"
+          v-for="item in items"
           :key="item.label"
           class="flex items-center gap-4 bg-gray-card-100 border border-gray-card-200 rounded-lg pl-4 pr-2 py-[25px]"
         >
