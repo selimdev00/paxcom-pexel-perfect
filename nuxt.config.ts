@@ -13,6 +13,7 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
+  css: ["~/assets/global.css"],
   app: {
     head: {
       charset: "utf-8",
