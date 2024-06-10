@@ -10,6 +10,10 @@ export default {
           dark: "#1253A2",
         },
         gray: {
+          card: {
+            100: "#FBFCFD",
+            200: "#EEEFF1",
+          },
           text: {
             DEFAULT: "#8F8F8F",
           },

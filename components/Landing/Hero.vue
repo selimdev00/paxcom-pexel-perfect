@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 items-center justify-items-center">
+  <section class="grid grid-cols-2 items-center justify-items-center">
     <div class="mt-20 space-y-4">
       <h1 class="font-bold text-[41px] leading-[49.2px]">
         Проверьте штрафы и зарегестрируйтесь в 1 клик
@@ -63,6 +63,5 @@
       densities="x1 x2"
       class="w-full p-6 mt-12"
     />
-  </div>
+  </section>
 </template>
-<script setup lang="ts"></script>
