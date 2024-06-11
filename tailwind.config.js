@@ -14,6 +14,7 @@ export default {
             100: "#FBFCFD",
             200: "#EEEFF1",
           },
+          bullet: "#D9D9D9",
           text: {
             DEFAULT: "#8F8F8F",
           },

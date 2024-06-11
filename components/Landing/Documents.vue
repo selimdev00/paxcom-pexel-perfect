@@ -28,11 +28,13 @@ const documents = [
 </script>
 
 <template>
-  <div class="max-w-[1160px] mx-auto space-y-6 pb-20">
+  <div class="max-w-[1160px] mx-auto space-y-5 pb-20">
     <h1 class="text-[34px] font-bold text-center">Документы</h1>
 
     <div class="mx-5 py-1 relative">
       <Swiper
+        centered-slides-bounds
+        center-insufficient-slides
         :modules="[SwiperPagination, SwiperNavigation]"
         :slides-per-view="3"
         :navigation="{
@@ -42,11 +44,14 @@ const documents = [
         :pagination="{
           el: '.pagination',
           clickable: true,
+          bulletClass: 'pagination__bullet',
+          bulletActiveClass: 'pagination__bullet--active',
+          clickableClass: 'pagination__bullet--clickable',
         }"
       >
         <SwiperSlide v-for="item in documents" :key="item.title" class="p-4">
           <div
-            class="shadow-card h-[450px] w-[340px] flex flex-col justify-between rounded-xl px-6 pt-4 pb-8"
+            class="shadow-card h-[450px] w-[340px] flex flex-col justify-between rounded-xl px-6 pt-5 pb-8"
           >
             <div class="space-y-4">
               <h2
@@ -64,14 +69,18 @@ const documents = [
           </div>
         </SwiperSlide>
 
-        <div class="pagination -mt-1 flex justify-center"></div>
+        <div class="pagination -mt-[6px] flex justify-center"></div>
       </Swiper>
 
-      <button class="prev cursor-pointer absolute bottom-52 -left-4">
+      <button
+        class="prev cursor-pointer absolute bottom-52 -left-4 z-10 hover:opacity-70 transition"
+      >
         <IconSliderArrowLeft />
       </button>
 
-      <button class="next cursor-pointer absolute bottom-52 -right-4">
+      <button
+        class="next cursor-pointer absolute bottom-52 -right-4 z-10 hover:opacity-70 transition"
+      >
         <span>
           <IconSliderArrowRight />
         </span>
@@ -79,3 +88,17 @@ const documents = [
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.pagination {
+  @apply flex items-center gap-1;
+
+  &__bullet {
+    @apply w-[7px] h-[7px] rounded-full bg-gray-bullet hover:opacity-70 cursor-pointer transition;
+
+    &--active {
+      @apply w-[10px] h-[10px] bg-primary;
+    }
+  }
+}
+</style>

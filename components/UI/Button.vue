@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const classList = computed(() => {
   return [
-    "py-2 px-4 rounded-lg text-[15px] flex items-center gap-1 justify-center",
+    "py-2 px-4 rounded-lg text-[15px] flex items-center gap-1 justify-center transition-opacity hover:opacity-70",
     {
       "bg-primary text-white": props.variant === "primary",
       "bg-white text-primary-dark border border-primary":

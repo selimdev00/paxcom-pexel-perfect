@@ -4,11 +4,11 @@ const appConfig = useAppConfig();
 const nav = [
   {
     label: "Тарифы",
-    to: "",
+    to: "/tariffs",
   },
   {
     label: "Контакты",
-    to: "",
+    to: "/contacts",
   },
 ];
 </script>
@@ -22,14 +22,21 @@ const nav = [
         <nav>
           <ul class="flex items-center text-lg gap-7">
             <li v-for="item in nav" :key="item.to">
-              <nuxt-link :to="item.to">{{ item.label }}</nuxt-link>
+              <nuxt-link
+                :to="item.to"
+                class="transition-opacity hover:opacity-70"
+                >{{ item.label }}</nuxt-link
+              >
             </li>
           </ul>
         </nav>
       </div>
 
       <div class="flex items-center gap-[17px]">
-        <a :href="appConfig.contacts.phoneNumber" class="text-lg">
+        <a
+          :href="`tel:${appConfig.contacts.phoneNumber}`"
+          class="text-lg transition-opacity hover:opacity-70"
+        >
           {{ appConfig.contacts.phoneNumber }}
         </a>
 
