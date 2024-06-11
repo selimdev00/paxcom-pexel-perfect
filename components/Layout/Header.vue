@@ -43,7 +43,9 @@ const mobileNav = [
 </script>
 
 <template>
-  <header class="bg-header-gradient text-white h-[60px] flex items-center">
+  <header
+    class="bg-header-gradient text-white h-[60px] flex items-center sticky top-0 z-30"
+  >
     <div class="container py-3 flex items-center justify-between">
       <div class="flex items-center gap-8">
         <Logo />
