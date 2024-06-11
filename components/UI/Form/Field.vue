@@ -21,7 +21,7 @@ provide("value", value);
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative w-full">
     <label :for="name" class="text-[12px]">{{ label }}</label>
 
     <slot :id="name" :value="value" />

@@ -11,6 +11,35 @@ const nav = [
     to: "/contacts",
   },
 ];
+
+const menu = ref(false);
+
+watch(menu, (value: boolean) => {
+  if (value) {
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
+});
+
+const mobileNav = [
+  {
+    label: "Тарифы",
+    to: "/tariffs",
+  },
+  {
+    label: "Контакты",
+    to: "/contacts",
+  },
+  {
+    label: "Вход",
+    to: "/auth/login",
+  },
+  {
+    label: "Регистрация",
+    to: "/auth/register",
+  },
+];
 </script>
 
 <template>
@@ -19,7 +48,7 @@ const nav = [
       <div class="flex items-center gap-8">
         <Logo />
 
-        <nav>
+        <nav class="lg:block hidden">
           <ul class="flex items-center text-lg gap-7">
             <li v-for="item in nav" :key="item.to">
               <nuxt-link
@@ -33,7 +62,45 @@ const nav = [
         </nav>
       </div>
 
-      <div class="flex items-center gap-[17px]">
+      <div class="lg:hidden block">
+        <IconMenu @click="menu = true" />
+
+        <transition name="fade">
+          <div
+            v-if="menu"
+            class="bg-black/80 fixed top-0 left-0 w-full h-full z-20 flex justify-end text-black"
+          >
+            <div
+              class="bg-white w-[250px] h-full p-4 flex flex-col justify-between text-right"
+            >
+              <div class="space-y-8">
+                <div class="flex justify-end">
+                  <button @click="menu = false">
+                    <IconClose />
+                  </button>
+                </div>
+
+                <nav class="text-xl">
+                  <ul class="space-y-2">
+                    <li v-for="item in mobileNav" :key="item.to">
+                      <nuxt-link :to="item.to">{{ item.label }}</nuxt-link>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <a
+                :href="`tel:${appConfig.contacts.phoneNumber}`"
+                class="text-lg transition-opacity hover:opacity-70 block"
+              >
+                {{ appConfig.contacts.phoneNumber }}
+              </a>
+            </div>
+          </div>
+        </transition>
+      </div>
+
+      <div class="md:flex hidden items-center gap-[17px]">
         <a
           :href="`tel:${appConfig.contacts.phoneNumber}`"
           class="text-lg transition-opacity hover:opacity-70"

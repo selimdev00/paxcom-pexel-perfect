@@ -10,12 +10,11 @@ const { documents } = storeToRefs(documentStore);
       Документы
     </h1>
 
-    <div class="mx-5 py-1 relative" data-aos="fade-up">
+    <div class="sm:mx-5 py-1 relative" data-aos="fade-up">
       <Swiper
         centered-slides-bounds
         center-insufficient-slides
         :modules="[SwiperPagination, SwiperNavigation]"
-        :slides-per-view="3"
         :navigation="{
           nextEl: '.next',
           prevEl: '.prev',
@@ -27,10 +26,22 @@ const { documents } = storeToRefs(documentStore);
           bulletActiveClass: 'pagination__bullet--active',
           clickableClass: 'pagination__bullet--clickable',
         }"
+        :breakpoints="{
+          990: {
+            slidesPerView: 3,
+          },
+          650: {
+            slidesPerView: 2,
+          },
+        }"
       >
-        <SwiperSlide v-for="item in documents" :key="item.title" class="p-4">
+        <SwiperSlide
+          v-for="item in documents"
+          :key="item.title"
+          class="p-4 flex justify-center items-center"
+        >
           <div
-            class="shadow-card h-[450px] w-[340px] flex flex-col justify-between rounded-xl px-6 pt-5 pb-8"
+            class="shadow-card h-[450px] xl:w-[340px] max-w-[340px] w-full flex flex-col justify-between rounded-xl px-6 pt-5 pb-8 mx-auto"
           >
             <div class="space-y-4">
               <h2

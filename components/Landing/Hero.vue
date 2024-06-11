@@ -17,19 +17,22 @@ const onSubmit = handleSubmit((values) => {
 </script>
 
 <template>
-  <section class="grid grid-cols-2 justify-items-center">
-    <form @submit.prevent="onSubmit" class="mt-20 space-y-4">
-      <h1 class="font-bold text-[41px] leading-[49.2px]" data-aos="fade-up">
+  <section class="grid xl:grid-cols-2 justify-items-center overflow-hidden">
+    <form @submit.prevent="onSubmit" class="md:mt-20 mt-10 space-y-4">
+      <h1
+        class="font-bold md:text-[41px] text-3xl md:leading-[49.2px]"
+        data-aos="fade-up"
+      >
         Проверьте штрафы и зарегестрируйтесь в 1 клик
       </h1>
 
       <div class="space-y-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex gap-8">
+        <div class="flex flex-wrap gap-x-8 gap-3">
           <UIFormField
             v-slot="{ id }"
             name="carNumber"
             label="Номер автомобиля"
-            class="w-[320px] shrink-0"
+            class="xl:w-[320px] xl:shrink-0"
           >
             <UIFormInputText :id="id" />
           </UIFormField>
@@ -43,14 +46,13 @@ const onSubmit = handleSubmit((values) => {
           name="insurance"
           label="Свидетельство о регистрации ТС"
           v-slot="{ id }"
-          class="w-full"
         >
           <UIFormInputText :id="id" />
         </UIFormField>
       </div>
 
       <div
-        class="flex items-center gap-[19px]"
+        class="flex items-center gap-x-[19px] gap-y-4 flex-wrap"
         data-aos="fade-up"
         data-aos-delay="200"
       >

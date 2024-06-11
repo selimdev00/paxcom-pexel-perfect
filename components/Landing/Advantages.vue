@@ -36,11 +36,14 @@ const items = [
 <template>
   <section>
     <div class="max-w-[1160px] mx-auto space-y-7">
-      <h1 class="text-[34px] font-bold text-center" data-aos="fade-up">
+      <h1
+        class="md:text-[34px] text-2xl font-bold text-center"
+        data-aos="fade-up"
+      >
         Плюсы использования сервиса «Компас» для анализа штрафов
       </h1>
 
-      <ul class="grid grid-cols-3 gap-8">
+      <ul class="grid xl:grid-cols-3 lg:grid-cols-2 sm:gap-8 gap-4">
         <li
           v-for="(item, index) in items"
           :key="item.label"
