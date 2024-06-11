@@ -36,15 +36,17 @@ const items = [
 <template>
   <section>
     <div class="max-w-[1160px] mx-auto space-y-7">
-      <h1 class="text-[34px] font-bold text-center">
+      <h1 class="text-[34px] font-bold text-center" data-aos="fade-up">
         Плюсы использования сервиса «Компас» для анализа штрафов
       </h1>
 
       <ul class="grid grid-cols-3 gap-8">
         <li
-          v-for="item in items"
+          v-for="(item, index) in items"
           :key="item.label"
           class="flex items-center gap-4 bg-gray-card-100 border border-gray-card-200 rounded-lg pl-4 pr-2 py-[25px]"
+          data-aos="fade-up"
+          :data-aos-delay="index * 100"
         >
           <span class="text-primary-dark text-[60px]">
             <component :is="item.icon" />

@@ -1,9 +1,15 @@
 <script lang="ts" setup>
+import { MaskInput } from "maska";
+
 defineOptions({
   inheritAttrs: false,
 });
 
-const model = defineModel();
+interface Props {
+  mask?: string;
+}
+
+const props = defineProps<Props>();
 
 const classList = computed(() => {
   return {
@@ -12,8 +18,29 @@ const classList = computed(() => {
     ],
   };
 });
+
+const value = inject("value");
+
+let maskInputInstance;
+
+const input = ref();
+
+onMounted(() => {
+  console.log(props.mask);
+  if (props.mask) {
+    maskInputInstance = new MaskInput(input.value as HTMLInputElement, {
+      mask: props.mask,
+    });
+  }
+});
+
+onUnmounted(() => {
+  if (props.mask) {
+    maskInputInstance.destroy();
+  }
+});
 </script>
 
 <template>
-  <input v-bind="$attrs" v-model="model" :class="classList.input" />
+  <input ref="input" v-bind="$attrs" :class="classList.input" v-model="value" />
 </template>

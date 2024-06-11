@@ -1,37 +1,16 @@
 <script setup lang="ts">
-const documents = [
-  {
-    title: "Лицензионный договор",
-    text: "Механизм разбрасывания веерного типа приводится в действие от колес тележки, отличается простой и надежной конструкцией, не нуждается в смазке. ",
-  },
-  {
-    title: "Политика обработки персональных данных",
-    text: "Радиус разброса ПГМ составляет до 3 метров и может регулироваться.",
-  },
-  {
-    title: "Информация об оплате",
-    text: "Десятипозиционный переключатель дозировки расположен на ручке тележки и позволяет очень точно регулировать объем рассыпаемого реагента с учетом его массы и фракции.",
-  },
-  {
-    title: "Лицензионный договор 2",
-    text: "Механизм разбрасывания веерного типа приводится в действие от колес тележки, отличается простой и надежной конструкцией, не нуждается в смазке. ",
-  },
-  {
-    title: "Политика обработки персональных данных 2",
-    text: "Радиус разброса ПГМ составляет до 3 метров и может регулироваться.",
-  },
-  {
-    title: "Информация об оплате 2",
-    text: "Десятипозиционный переключатель дозировки расположен на ручке тележки и позволяет очень точно регулировать объем рассыпаемого реагента с учетом его массы и фракции.",
-  },
-];
+const documentStore = useDocumentStore();
+
+const { documents } = storeToRefs(documentStore);
 </script>
 
 <template>
   <div class="max-w-[1160px] mx-auto space-y-5 pb-20">
-    <h1 class="text-[34px] font-bold text-center">Документы</h1>
+    <h1 class="text-[34px] font-bold text-center" data-aos="fade-up">
+      Документы
+    </h1>
 
-    <div class="mx-5 py-1 relative">
+    <div class="mx-5 py-1 relative" data-aos="fade-up">
       <Swiper
         centered-slides-bounds
         center-insufficient-slides
@@ -65,7 +44,9 @@ const documents = [
               </p>
             </div>
 
-            <UIButton class="w-full text-lg">Перейти</UIButton>
+            <UIButton class="w-full text-lg" :to="`/documents/${item.id}`"
+              >Перейти</UIButton
+            >
           </div>
         </SwiperSlide>
 

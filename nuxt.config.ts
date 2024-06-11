@@ -7,6 +7,8 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/image",
     "nuxt-swiper",
+    "@pinia/nuxt",
+    "nuxt-aos",
   ],
   site: {
     url: "https://compas.ru",

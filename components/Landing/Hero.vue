@@ -1,67 +1,101 @@
+<script setup lang="ts">
+import { useForm } from "vee-validate";
+import { object, string } from "yup";
+
+const validationSchema = object().shape({
+  carNumber: string().required("Необходимо заполнить"),
+  region: string().required("Необходимо заполнить"),
+  insurance: string().required("Необходимо заполнить"),
+});
+
+const { handleSubmit, resetForm } = useForm({ validationSchema });
+
+const onSubmit = handleSubmit((values) => {
+  useNuxtApp().$toast.info("Данные отправлены");
+  resetForm();
+});
+</script>
+
 <template>
-  <section class="grid grid-cols-2 items-center justify-items-center">
-    <div class="mt-20 space-y-4">
-      <h1 class="font-bold text-[41px] leading-[49.2px]">
+  <section class="grid grid-cols-2 justify-items-center">
+    <form @submit.prevent="onSubmit" class="mt-20 space-y-4">
+      <h1 class="font-bold text-[41px] leading-[49.2px]" data-aos="fade-up">
         Проверьте штрафы и зарегестрируйтесь в 1 клик
       </h1>
 
-      <div class="space-y-3">
+      <div class="space-y-3" data-aos="fade-up" data-aos-delay="100">
         <div class="flex gap-8">
           <UIFormField
-            id="carNumber"
-            label="Номер автомобиля"
             v-slot="{ id }"
-            class="w-[320px] flex-none"
+            name="carNumber"
+            label="Номер автомобиля"
+            class="w-[320px] shrink-0"
           >
             <UIFormInputText :id="id" />
           </UIFormField>
 
-          <UIFormField
-            id="region"
-            label="Регион"
-            v-slot="{ id }"
-            class="flex-none"
-          >
+          <UIFormField v-slot="{ id }" name="region" label="Регион">
             <UIFormInputText :id="id" />
           </UIFormField>
         </div>
 
         <UIFormField
-          id="insurance"
+          name="insurance"
           label="Свидетельство о регистрации ТС"
           v-slot="{ id }"
+          class="w-full"
         >
           <UIFormInputText :id="id" />
         </UIFormField>
       </div>
 
-      <div class="flex items-center gap-[19px]">
-        <UIButton class="h-[45px] !px-[18px] !text-lg">
+      <div
+        class="flex items-center gap-[19px]"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <UIButton class="h-[45px] !px-[18px] !text-lg" type="submit">
           Проверить штрафы
           <IconArrowRight />
         </UIButton>
 
-        <UIButton class="h-[45px] !px-5 !text-lg !gap-2" variant="secondary">
-          <span class="text-[30px]">
-            <IconYoutube />
-          </span>
+        <VideoPopup
+          video-url="https://www.youtube.com/embed/dQw4w9WgXcQ?si=boLAlEtKYspTEhP_&autoplay=1"
+        >
+          <template #trigger>
+            <UIButton
+              @click.prevent
+              class="h-[45px] !px-5 !text-lg !gap-2"
+              variant="secondary"
+            >
+              <span class="text-[30px]">
+                <IconYoutube />
+              </span>
 
-          <span class="text-black">О сервисе</span>
+              <span class="text-black">О сервисе</span>
 
-          <span class="text-[15px]">(1 мин. 20 сек)</span>
-        </UIButton>
+              <span class="text-[15px]">(1 мин. 20 сек)</span>
+            </UIButton>
+          </template>
+        </VideoPopup>
       </div>
 
-      <p class="text-gray-text text-[13px] leading-[15.6px]">
+      <p
+        class="text-gray-text text-[13px] leading-[15.6px]"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         Нажимая «Проверить штрафы» вы соглашаетесь с политикой обработки
         персональных данных и принимаете оферту
       </p>
-    </div>
+    </form>
 
     <nuxt-img
+      data-aos="fade-left"
+      data-aos-delay="400"
       src="/images/compas-landing-image.png"
       densities="x1 x2"
-      class="w-full p-6 mt-12"
+      class="w-full p-6 mt-14"
     />
   </section>
 </template>

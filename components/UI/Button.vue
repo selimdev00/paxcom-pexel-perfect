@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 interface Props {
   variant?: "primary" | "naked" | "secondary";
+  to?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   variant: "primary",
+  to: undefined,
 });
 
 const classList = computed(() => {
@@ -17,10 +19,15 @@ const classList = computed(() => {
     },
   ];
 });
+
+const buttonComponent = computed(() => {
+  if (props.to) return resolveComponent("NuxtLink");
+  else return "button";
+});
 </script>
 
 <template>
-  <button :class="classList">
+  <component :is="buttonComponent" :class="classList" :to="to">
     <slot />
-  </button>
+  </component>
 </template>

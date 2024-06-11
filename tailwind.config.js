@@ -19,6 +19,10 @@ export default {
             DEFAULT: "#8F8F8F",
           },
         },
+        black: {
+          100: "#383838",
+          DEFAULT: "#000",
+        },
       },
       backgroundImage: {
         "header-gradient": "linear-gradient(90deg, #000000 30%, #1C2734 73%)",

@@ -23,6 +23,7 @@ const nav = [
           <ul class="flex items-center text-lg gap-7">
             <li v-for="item in nav" :key="item.to">
               <nuxt-link
+                active-class="opacity-70"
                 :to="item.to"
                 class="transition-opacity hover:opacity-70"
                 >{{ item.label }}</nuxt-link
@@ -40,9 +41,11 @@ const nav = [
           {{ appConfig.contacts.phoneNumber }}
         </a>
 
-        <UIButton variant="naked" class="!text-lg">Вход</UIButton>
+        <UIButton variant="naked" class="!text-lg" to="/auth/login"
+          >Вход</UIButton
+        >
 
-        <UIButton>Регистрация</UIButton>
+        <UIButton to="/auth/register">Регистрация</UIButton>
       </div>
     </div>
   </header>
