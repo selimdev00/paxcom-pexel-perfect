@@ -27,7 +27,7 @@ const onSubmit = handleSubmit((values) => {
       </h1>
 
       <div class="space-y-3" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex flex-wrap gap-x-8 gap-3">
+        <div class="flex lg:flex-nowrap flex-wrap gap-x-8 gap-3">
           <UIFormField
             v-slot="{ id }"
             name="carNumber"
