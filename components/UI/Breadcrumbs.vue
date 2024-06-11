@@ -12,7 +12,7 @@ defineProps<Props>();
 </script>
 
 <template>
-  <ul class="flex items-center">
+  <ul class="flex items-center flex-wrap">
     <li
       v-for="item in items"
       :key="item.to"

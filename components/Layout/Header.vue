@@ -62,15 +62,19 @@ const mobileNav = [
         </nav>
       </div>
 
-      <div class="lg:hidden block">
-        <IconMenu @click="menu = true" />
+      <div class="lg:hidden flex items-center">
+        <button @click="menu = true" class="text-2xl">
+          <IconMenu />
+        </button>
 
         <transition name="fade">
           <div
             v-if="menu"
             class="bg-black/80 fixed top-0 left-0 w-full h-full z-20 flex justify-end text-black"
+            @click="menu = false"
           >
             <div
+              @click.stop
               class="bg-white w-[250px] h-full p-4 flex flex-col justify-between text-right"
             >
               <div class="space-y-8">
@@ -83,7 +87,9 @@ const mobileNav = [
                 <nav class="text-xl">
                   <ul class="space-y-2">
                     <li v-for="item in mobileNav" :key="item.to">
-                      <nuxt-link :to="item.to">{{ item.label }}</nuxt-link>
+                      <nuxt-link :to="item.to" @click="menu = false">{{
+                        item.label
+                      }}</nuxt-link>
                     </li>
                   </ul>
                 </nav>

@@ -55,15 +55,15 @@ useHead({
     />
 
     <div class="space-y-7">
-      <h1 class="font-bold text-[41px]">{{ document.title }}</h1>
+      <h1 class="font-bold md:text-[41px] text-2xl">{{ document.title }}</h1>
 
       <section v-for="section in sections" class="space-y-4">
-        <h1 class="font-bold text-[41px] text-black-100">
+        <h1 class="font-bold md:text-[41px] text-2xl text-black-100">
           {{ section.title }}
         </h1>
 
         <div class="space-y-4">
-          <p v-for="text in section.text" class="text-lg leading-[21.6px]">
+          <p v-for="text in section.text" class="md:text-lg leading-[21.6px]">
             {{ text }}
           </p>
         </div>
