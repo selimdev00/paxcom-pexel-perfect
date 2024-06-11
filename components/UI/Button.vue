@@ -27,7 +27,12 @@ const buttonComponent = computed(() => {
 </script>
 
 <template>
-  <component :is="buttonComponent" :class="classList" :to="to">
+  <component
+    :is="buttonComponent"
+    :class="classList"
+    :to="to"
+    active-class="opacity-70"
+  >
     <slot />
   </component>
 </template>
